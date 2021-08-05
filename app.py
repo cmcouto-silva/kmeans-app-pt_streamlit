@@ -131,7 +131,7 @@ with raw_col:
 			xaxis=dict({'title':'x'}), yaxis=dict({'title':'y'})
 			)
 		)
-	st.plotly_chart(raw_fig)
+	st.plotly_chart(raw_fig, use_container_width=True)
 
 with elbow_col:
 	elbow_fig = go.Figure(
@@ -141,7 +141,7 @@ with elbow_col:
 		xaxis=dict({'title':'k'}), yaxis=dict({'title':'wss'})
 		)
 	)
-	st.plotly_chart(elbow_fig)
+	st.plotly_chart(elbow_fig, use_container_width=True)
 
 
 st.markdown("""
@@ -182,7 +182,7 @@ with raw_seed:
 with kanimation_seed:
 	fig_seed = kmeans.plot(model_seed)
 	fig_seed = fig_seed.update_layout(autosize=False, height=500,
-		title_text="<b>Visualizando viés de inicialização dos centroides</b>", title_font=dict(size=24))
+		title_text="<b>Visualizando viés de inicialização dos centroides</b>", title_font=dict(size=21))
 	st.plotly_chart(fig_seed, use_container_width=True, sharing="streamlit")
 
 
