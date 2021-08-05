@@ -23,7 +23,7 @@ st.write("")
 # components.html('<b>texto</b>')
 # st.markdown("<h1 style='text-align: center; color: red;'>texto</h1>", unsafe_allow_html=True)
 
-st.sidebar.title('Parâmetros:')
+st.sidebar.title('Parâmetros')
 
 with st.sidebar.beta_container():
    _, slider_col, _ = st.beta_columns([0.02, 0.96, 0.02])
@@ -98,8 +98,8 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	Os scripts com a implementação passo a passo do K-means e produção deste aplicativo estão disponíveis no GitHub:
 
-	- Repositório do aplicativo
-	- Script K-means passo a passo (sem scikit-learn)
+	- [Repositório do aplicativo](https://github.com/cmcouto-silva/kmeans-app-pt_streamlit)
+	- [Script K-means passo a passo (sem scikit-learn)](https://github.com/cmcouto-silva/kmeans-app-pt_streamlit/blob/main/kmeans.py)
 
 	&nbsp;
 	""")
@@ -168,7 +168,7 @@ ilustra bem como cada modelo se sai na identificação de grupos em dados com di
 raw_seed, kanimation_seed = st.beta_columns([0.5,0.5])
 
 data_seed,labels_seed = make_blobs(centers=4, random_state=3)
-model_seed = kmeans.Kmeans(data_seed, 4, seed=2)
+model_seed = kmeans.Kmeans(data_seed, 4, seed=7)
 model_seed.fit()
 
 with raw_seed:
