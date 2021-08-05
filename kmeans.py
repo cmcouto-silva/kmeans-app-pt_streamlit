@@ -23,6 +23,8 @@ class Kmeans():
         List of all centroids calculated in each step
     centroids : numpy array
         Array with final centroids
+    mode : str
+        Whether or not the centroids should be initialized randomly or with the kmeans++ algorithm
     _labels : list
         List of all labels calculated by each step
     labels: numpy array
@@ -32,6 +34,8 @@ class Kmeans():
     -------
     initialize_random_centroids()
         Initialize centroids randomly
+    initialize_improved_centroids()
+        Initialize centroids using the kmeans++ algorithm
     create_clusters(centroids)
         Create K clusters by taking the minimal euclidean distance between the centroids and data points
     calculate_new_centroids(clusters)
@@ -57,7 +61,20 @@ class Kmeans():
         self.num_individuals, self.num_features = self.X.shape
 
 
+    def initialize_random_centroids(self):
+        """Initialize K centroids at random"""
+        if self.seed is not None:
+            rng = np.random.RandomState(self.seed)
+            centroids_idx = rng.choice(range(self.num_individuals), size=self.K, replace=False)
+        else:
+            centroids_idx = np.random.choice(range(self.num_individuals), size=self.K, replace=False)
+        centroids = self.X[centroids_idx]
+        self._centroids = [centroids]
+        return centroids
+
+
     def initialize_improved_centroids(self):
+        """Initialize centroids using the kmeans++ algorithm"""
         dist = []
         dist.append(self.X[np.random.randint(0, self.num_individuals)])
         while len(dist)<self.K:
@@ -68,17 +85,6 @@ class Kmeans():
             ind = np.where(cum_prob >= r)[0][0]
             dist.append(self.X[ind])
         centroids = np.array(dist)
-        self._centroids = [centroids]
-        return centroids
-
-    def initialize_random_centroids(self):
-        """Initialize K centroids at random"""
-        if self.seed is not None:
-            rng = np.random.RandomState(self.seed)
-            centroids_idx = rng.choice(range(self.num_individuals), size=self.K, replace=False)
-        else:
-            centroids_idx = np.random.choice(range(self.num_individuals), size=self.K, replace=False)
-        centroids = self.X[centroids_idx]
         self._centroids = [centroids]
         return centroids
 
@@ -99,7 +105,7 @@ class Kmeans():
             
         return clusters
 
-    
+
     def calculate_new_centroids(self, clusters):
         """Realocate centroids to the center of each cluster
 
@@ -118,7 +124,7 @@ class Kmeans():
         self._centroids.append(centroids)
         return centroids
 
-    
+
     def predict_cluster(self, clusters):
         """Label each observation to its cluster
         
@@ -162,7 +168,18 @@ class Kmeans():
 
 
 def calculate_WSS(data, target_k, max_k, mode="random"):
-    """Calculate Elbow"""
+    """Calculate Elbow
+        
+    Parameters
+    ----------
+
+    target_k : int
+        Target k to return model
+    max_k : int
+        Numbers of k to be analyzed
+    mode : str
+        Whether or not the centroids should be initialized randomly or with the kmeans++ algorithm
+    """
     sse = []
     for k in range(1, max_k+1):
         kmeans_model = Kmeans(data, k, mode).fit()
@@ -207,7 +224,6 @@ def plot(model, velocidade=2):
     # Set Figure Layout
     layout = templates.plotly_dark
     layout["showlegend"] = False
-    # layout["template"] = "plotly_dark"
     layout["updatemenus"] = [
         {
             "buttons": [
@@ -311,6 +327,7 @@ def plot(model, velocidade=2):
             frames.append(frame2)
             sliders_dict['steps'].append(make_slider_step(c, ''))
     
+    # Build figure
     layout['sliders'] = [sliders_dict]
     data = [points_init, centroids_init]
 
