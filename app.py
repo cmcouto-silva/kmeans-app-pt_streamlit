@@ -64,7 +64,7 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	O modelo K-means é essencialmente baseado no cálculo da distância - normalmente a [distância euclidiana]() - entre os pontos da amostra e os centroides, que são os pontos inicialmente aleatórios e representam o centro de cada grupo (cluster). Assim, a quantidade de centroides é igual ao número de grupos (estes representados pela letra "k").
 
-	Cabe ressaltar que, uma vez que K-means utiliza a distância como métrica do modelo, é necessário normalizar as dados caso as variáveis estejam em escalas diferentes.
+	Cabe ressaltar que, uma vez que K-means utiliza a distância como métrica do modelo, é necessário normalizar os dados caso as variáveis estejam em escalas diferentes.
 
 	**Em resumo, a técnica funciona assim:**
 
@@ -78,7 +78,7 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	A inicialização dos centroides pode ser totalmente aleatória ou otimizada utilizando um algoritmo conhecido como K-means++.
 
-	Na inicialização aleatória, selecionamos k pontos pré-existentes como centroides, ou atribuímos k centroides dentro da dimensão dos pontos dos nosso dados. Na técnica K-means++ o objetivo é inicializar os centroides o mais distante possível um do outro, que por sua vez pode eliminar viés de inicialização de centroides (vide tópico "Armadilha do K-means") e tende a diminuir a quantidade de iterações necessárias para convergência da posição final dos centroides.
+	Na inicialização aleatória, selecionamos k pontos pré-existentes como centroides, ou atribuímos k centroides dentro da dimensão dos pontos dos nossos dados. Na técnica K-means++ o objetivo é inicializar os centroides o mais distante possível um do outro, que por sua vez pode eliminar viés de inicialização de centroides (vide tópico "Armadilha do K-means") e tende a diminuir a quantidade de iterações necessárias para convergência da posição final dos centroides.
 
 	Adicionalmente, algumas aplicações também rodam mais de uma vez o algoritmo com diferentes pontos de inicialização dos centroides, fornecendo como output aquele com a menor soma das variâncias internas de cada grupo.
 	
@@ -86,13 +86,13 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	---
 
-	Os dados desta aplicação são simulados com a função [`datasets.make_blobs()`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html) da biblioteca [`scikit-learn`](https://scikit-learn.org/stable/index.html). Aqui, limitei tanto a quantidade de observações (100) quanto de variáveis (2), para a aplicação não ficar pesada e ser possível visualizar com gráficos bidimencionais, respectivamente. 
+	Os dados desta aplicação são simulados com a função [`datasets.make_blobs()`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html) da biblioteca [`scikit-learn`](https://scikit-learn.org/stable/index.html). Aqui, limitei tanto a quantidade de observações (100) quanto de variáveis (2), para a aplicação não ficar pesada e ser possível visualizar com gráficos bidimensionais, respectivamente. 
 
 	Não foi utilizado mais de uma corrida por k, de modo que isso pode influenciar no método do cotovelo, visto que para determinados Ks a inicialização do centroide não foi a das melhores. 
 
 	Sugestões ou críticas? Contate-me via [LinkedIn](https://www.linkedin.com/in/cmcouto-silva/).
 
-	_**Disponibilizão dos códigos:**_
+	_**Disponibilização dos códigos:**_
 
 	---
 
