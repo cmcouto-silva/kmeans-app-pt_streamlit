@@ -168,7 +168,7 @@ ilustra bem como cada modelo se sai na identificação de grupos em dados com di
 raw_seed, kanimation_seed = st.beta_columns([0.5,0.5])
 
 data_seed,labels_seed = make_blobs(centers=4, random_state=3)
-model_seed = kmeans.Kmeans(data_seed, 4, seed=7)
+model_seed = kmeans.Kmeans(data_seed, 4, seed=2)
 model_seed.fit()
 
 with raw_seed:

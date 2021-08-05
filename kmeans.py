@@ -75,7 +75,7 @@ class Kmeans():
         """Initialize K centroids at random"""
         if self.seed is not None:
             rng = np.random.RandomState(self.seed)
-            centroids_idx = np.random.choice(range(self.num_individuals), size=self.K, replace=False)
+            centroids_idx = rng.choice(range(self.num_individuals), size=self.K, replace=False)
         else:
             centroids_idx = np.random.choice(range(self.num_individuals), size=self.K, replace=False)
         centroids = self.X[centroids_idx]
