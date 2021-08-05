@@ -62,7 +62,7 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	As variáveis categóricas podem ser utilizas após a descrição e interpretação das amostras presentes nestes grupos. **Não é recomendado o uso de ponderação arbitrária** para transformar variáveis categóricas em variáveis numéricas. Ao transformar variáveis categóricas em variáveis numéricas sem respaldo da literatura, assume-se que a distância entre as categorias são as mesmas, que por sua vez pode introduzir um viés na análise.
 
-	O modelo K-means é essencialmente baseado no cálculo da distância - normalmente a [distância euclidiana]() - entre os pontos da amostra e os centroides, que são os pontos inicialmente aleatórios e representam o centro de cada grupo (cluster). Assim, a quantidade de centroides é igual ao número de grupos (estes representados pela letra "k").
+	O modelo K-means é essencialmente baseado no cálculo da distância - normalmente a [distância euclidiana](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) - entre os pontos da amostra e os centroides, que são os pontos inicialmente aleatórios e representam o centro de cada grupo (cluster). Assim, a quantidade de centroides é igual ao número de grupos (estes representados pela letra "k").
 
 	Cabe ressaltar que, uma vez que K-means utiliza a distância como métrica do modelo, é necessário normalizar os dados caso as variáveis estejam em escalas diferentes.
 
