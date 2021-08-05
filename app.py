@@ -60,7 +60,7 @@ with st.beta_expander(label='Ler explicação do método'):
 
 	As variáveis utilizadas neste modelo são, **necessariamente**, numéricas. Como resultado, identificamos cada amostra à um grupo. A quantidade de grupos (K) identificados é determinada _a priori_, ou seja, antes de rodar o modelo. Contudo, existem métodos, como o método do cotovelo e da silhueta (Elbow e Silhouette, respectivamente), que nos auxiliam a identificar a melhor quantidade de grupos para nossos dados.
 
-	As variáveis categóricas podem ser utilizas após a descrição e interpretação das amostras presentes nestes grupos. **Não é recomendado** o uso de [ponderação arbitrária]() para transformar variáveis categóricas em variáveis numéricas. Ao transformar variáveis categóricas em variáveis numéricas sem respaldo da literatura, assume-se que a distância entre as categorias são as mesmas, que por sua vez pode introduzir um viés na análise.
+	As variáveis categóricas podem ser utilizas após a descrição e interpretação das amostras presentes nestes grupos. **Não é recomendado o uso de ponderação arbitrária** para transformar variáveis categóricas em variáveis numéricas. Ao transformar variáveis categóricas em variáveis numéricas sem respaldo da literatura, assume-se que a distância entre as categorias são as mesmas, que por sua vez pode introduzir um viés na análise.
 
 	O modelo K-means é essencialmente baseado no cálculo da distância - normalmente a [distância euclidiana]() - entre os pontos da amostra e os centroides, que são os pontos inicialmente aleatórios e representam o centro de cada grupo (cluster). Assim, a quantidade de centroides é igual ao número de grupos (estes representados pela letra "k").
 
