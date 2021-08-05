@@ -23,7 +23,7 @@ st.write("")
 # components.html('<b>texto</b>')
 # st.markdown("<h1 style='text-align: center; color: red;'>texto</h1>", unsafe_allow_html=True)
 
-st.sidebar.title('Parâmetros')
+st.sidebar.title('Parâmetros:')
 
 with st.sidebar.beta_container():
    _, slider_col, _ = st.beta_columns([0.02, 0.96, 0.02])
