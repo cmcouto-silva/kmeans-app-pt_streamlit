@@ -37,7 +37,7 @@ with st.sidebar.beta_container():
 				0.1, 5.0, 1.0, 0.1
 			)
 
-mode = st.sidebar.selectbox('Modo de inicialização dos clusters:', ["random", "kmeans++"])
+mode = st.sidebar.selectbox('Modo de inicialização dos centroides:', ["random", "kmeans++"])
 
 _, central_button, _ = st.sidebar.beta_columns([0.25, 0.5, 0.25])
 with central_button:
